@@ -7,9 +7,11 @@ ENV LD_LIBRARY_PATH=/usr/local/lib/
 
 # Libsodium and Go versions to install
 ARG LIBSODIUM_VERSION="libsodium-1.0.17"
+
 RUN yum update -y && \
     yum install -y zip gcc tar git wget
 
+#always install the latest version of go
 RUN wget --no-verbose -O go.tar.gz "https://dl.google.com/go/$(curl 'https://golang.org/VERSION?m=text').linux-amd64.tar.gz" && \
     tar -xzf go.tar.gz && \
     mv go /usr/local && \
